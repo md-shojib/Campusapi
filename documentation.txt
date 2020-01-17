@@ -1,0 +1,119 @@
+FORMAT: 1A
+HOST: https://127.0.0.1:4000/
+
+# Campus API
+
+Campus API is a simple API of user information
+
+## User Collection [/capmus/user]
+
+### List All Users [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                 "status": "success",
+                 "result": 1,
+                 "data": {
+                        "users": [
+                            {
+                                "_id": "5e214dcd45a7cf377c1bcb2c",
+                                 "name": "Shojib",
+                                 "roll": 1810876123,
+                                 "phone": "01883799528",
+                                 "__v": 0
+                             },
+                          
+                        ]
+                }
+        }
+        ]
+        
+        
+
+
+### Create a New User [POST]
+
+You may create new user using this action. It takes a JSON
+object containing user name, roll and phone.
+
++ Request (application/json)
+
+        {
+            "name": "User Name",
+            "roll": 1810876123,
+            "phone":"01883799528"
+        }
+
++ Response 201 (application/json)
+
+
+    + Body
+
+            {
+                "name": "User Name",
+                "roll": 1810876123,
+                "phone": "01883799528",
+                "_id": "5e214dcd45a7cf377c1bcb2c",
+                "__v": 0
+            }
+
+
+
+
+
+## User Retrieve Update and Delete [/capmus/user/5e0cac88dd30799095c842f7]
+
+### Get single User [GET]
+
++ Response 200 (application/json)
+
+        
+        {
+            "status": "success",
+            "data": {
+                 "users": {
+                  "_id": "5e214dcd45a7cf377c1bcb2c",
+                  "name": "shojib",
+                  "roll": 181087123,
+                  "phone": "01883799528",
+                  "__v": 0
+                }    
+            }
+        }
+    
+
+
+### Update a User [PATCH]
+
+You may update a  user using this action. It takes a JSON
+object containing update user information.
+
++ Request (application/json)
+
+        {
+            "phone":"01883799528"
+        }
+
++ Response 200 (application/json)
+
+
+    + Body
+
+            {
+                "name": "shojib",
+                "roll": 1810876123,
+                "phone": "01883799528",
+                "_id": "5e214dcd45a7cf377c1bcb2c",
+                "__v": 0
+            }
+
+### Delete a User [DELETE]
+
+You may delete a user using this action.
+
+
++ Response 200 (application/json)
+
+    + Headers
